@@ -7,6 +7,8 @@ System monitoring dashboard for terminal.
   [![NPM Version](https://img.shields.io/npm/v/gtop.svg)](https://npmjs.org/package/gtop)
   [![NPM Downloads](https://img.shields.io/npm/dm/gtop.svg)](https://npmjs.org/package/gtop)
   [![Snap Status](https://build.snapcraft.io/badge/aksakalli/gtop.svg)](https://build.snapcraft.io/user/aksakalli/gtop)
+  [![Docker Pulls](https://img.shields.io/docker/pulls/aksakalli/gtop)](https://hub.docker.com/r/aksakalli/gtop)
+  [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/aksakalli/gtop)](https://hub.docker.com/r/aksakalli/gtop/builds)
 
 ### Requirements
 
@@ -15,8 +17,20 @@ System monitoring dashboard for terminal.
 
 ### Installation
 
-```
+```sh
 $ npm install gtop -g
+```
+
+#### Docker
+
+You need to assign host `net` and `pid` to access the metrics in the host machine.
+
+```sh
+$ docker run --rm -it \
+    --name gtop \
+    --net="host" \
+    --pid="host" \
+    aksakalli/gtop
 ```
 
 ### Usage
@@ -39,7 +53,7 @@ You can sort the process table by pressing
 
 If you see question marks or other different characters, try to run it with these environment variables:
 
-```
+```sh
 $ LANG=en_US.utf8 TERM=xterm-256color gtop
 ```
 
